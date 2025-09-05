@@ -71,9 +71,10 @@
     .tag a:visited,
     .lab a:visited{ color: color-mix(in oklab, var(--muted) 70%, var(--fg) 30%); }
 
-    #contact a.link{font-weight:700;text-decoration:none;border-bottom:none;display:inline-block;transition:transform .10s ease,color .10s ease}
-    #contact a.link:hover{transform:scale(1.06)}
-    #contact a.link:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+    .contact a{color: #2196F3 !important; text-decoration: none; font-weight:700; text-decoration:none; border-bottom:none; display:inline-block; transition:transform .10s ease;}
+    .contact a:hover{transform:scale(1.03)}
+    .contact a:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px;}
+    .contact a:visited{ color: #2196F3 !important; text-decoration: none; }
     
     /* 키보드 접근성 */
     .tag a:focus-visible,
