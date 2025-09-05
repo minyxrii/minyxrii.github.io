@@ -9,95 +9,90 @@
     :root{
       --fg:#222; --bg:#fff; --muted:#626b74; --line:#eaecef;
       --blue:#2196F3; --green:#4CAF50; --maxw:760px;
+      /* 사진 크기(3:4 비율 기준). 숫자만 바꾸면 동시에 반영됨 */
+      --photo-w:132px; --photo-h:176px;
     }
-    /* 타입: Apple SD 산돌고딕 Neo 우선, 플랫폼별 대체 */
-    html,body{height:100%}
-    body{margin:0;color:var(--fg);background:var(--bg);
-      font-family:"Apple SD Gothic Neo","Apple SD 산돌고딕 Neo","Noto Sans KR","Pretendard","Segoe UI",system-ui,Helvetica,Arial,sans-serif;
-      -webkit-font-smoothing:antialiased; font-size:15px;}
 
-    /* 레이아웃: 단일 컬럼, 넉넉한 여백, 정확한 정렬 */
+    /* ③ 전반 폰트 80% (기존 15px → 12px) */
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--fg); background:var(--bg);
+      font-family:"Apple SD Gothic Neo","Apple SD 산돌고딕 Neo","Noto Sans KR","Pretendard","Segoe UI",system-ui,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased; font-size:12px;
+    }
+
+    /* 레이아웃 */
     .wrap{max-width:var(--maxw);margin:0 auto;padding:52px 20px}
     header{padding:22px 0 6px;border-bottom:1px solid var(--line)}
-    .brand{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
-    .name{font-size:30px; font-weight:700; letter-spacing:.2px; margin:0}
-    .tag{font-size:15px; color:var(--muted); margin:0}
-    .lab{font-size:13px; color:var(--muted); margin:6px 0 0}
 
-    nav{display:flex;align-items:center;gap:14px;padding:10px 0 16px}
-    nav a{color:var(--fg);text-decoration:none;font-weight:600;font-size:14px}
+    /* ② 헤더: 좌측(이름/태그/네비)과 우측(사진) 2열, 좌측을 사진 높이에 맞춰 3줄 균등 분배 */
+    .header-grid{
+      display:grid; grid-template-columns:1fr var(--photo-w);
+      column-gap:16px; row-gap:10px; align-items:stretch;
+    }
+    .header-left{
+      min-height:var(--photo-h);
+      display:flex; flex-direction:column; justify-content:space-between;
+    }
+    .header-right{justify-self:end}
+
+    .name{font-size:28px; font-weight:700; letter-spacing:.2px; margin:0}
+    .tag{font-size:14px; color:var(--muted); margin:0}
+
+    nav{display:flex; align-items:center; gap:16px; padding:0; margin-top:6px}
+    nav a{color:var(--fg); text-decoration:none; font-weight:700; font-size:14px}
     nav a:hover{color:var(--blue)}
-    
 
-    /* 섹션: 간단한 제목, 얇은 구분선 */
+    /* 섹션 */
     section{padding:24px 0;border-bottom:1px solid var(--line)}
-    h2{font-size:16px;margin:0 0 12px;color:var(--muted);font-weight:700;letter-spacing:.5px}
+    h2{font-size:14px;margin:0 0 12px;color:var(--muted);font-weight:700;letter-spacing:.5px}
     p{margin:0 0 10px;line-height:1.7}
     ul{margin:0;padding-left:18px}
     li{margin:8px 0}
 
-    /* 링크 포인트 컬러 (초록/파랑 절제 사용) */
+    /* 링크 */
     a.link{color:var(--blue)}
-    /* CONTACT 링크: 굵게, 밑줄 제거, 호버 시 확대 */
-    #contact a.link{
-      font-weight:700;
-      text-decoration:none;
-      border-bottom:none;
-      display:inline-block;
-      transition:transform .12s ease, color .12s ease;
-    }
-    #contact a.link:hover{ transform:scale(1.12); }
-    #contact a.link:focus-visible{ outline:2px solid var(--blue); outline-offset:2px; border-radius:4px; }
-    mark{background:linear-gradient(transparent 60%, color-mix(in oklab, var(--green), #ffffff 75%) 60%);}    
+    mark{background:linear-gradient(transparent 60%, color-mix(in oklab, var(--green), #ffffff 75%) 60%);}
 
     /* 푸터 */
     footer{padding:16px 0;color:var(--muted);font-size:7px}
 
-    /* 작은 화면: 그리드 없이 동일 여백 유지 */
-    @media (max-width:480px){ .name{font-size:22px} nav a{font-size:13px} nav .avatar{
-      width:132px;
-      height:auto;
-      border-radius:0; /* 직사각형 그대로 */
-      background:#fff;
-      border:1px solid var(--line);
-      box-shadow:0 2px 6px rgba(0,0,0,.06);
-    } }
-
-    /* 아바타: 네비게이션 우측, 동그란 크롭 */
-    .avatar {
-      width:112px;
-      height:112px;
-      border-radius:50%;
-      object-fit:cover;
-      object-position:50% 18%;
-      background:#fff;
-      border:1px solid var(--line);
-      box-shadow:0 2px 6px rgba(0,0,0,.06);
+    /* 아바타: 직사각형 유지, 레터박스 허용(크롭 없음) */
+    .avatar{
+      width:var(--photo-w); height:var(--photo-h);
+      object-fit:contain; background:#fff;
+      border:1px solid var(--line); box-shadow:0 2px 6px rgba(0,0,0,.06);
+      border-radius:0;
     }
 
-    /* (옵션) Education Section 스타일 쓰려면 #edu ul 로 지정 */
-    /* #edu ul{list-style:none;padding:0;margin:0}
-       #edu li{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--line)}
-       #edu .degree{font-weight:500}
-       #edu .year{color:var(--muted);font-size:13px} */
-      /* 헤더 2열 레이아웃 (좌: 이름+네비, 우: 사진) */
-    .header-grid{display:grid;grid-template-columns:1fr 132px;column-gap:16px;row-gap:10px;align-items:end}
-    .header-left{display:grid;row-gap:8px}
-    .header-right{justify-self:end}
-    @media(max-width:520px){.header-grid{grid-template-columns:1fr}.header-right .avatar{width:96px;height:auto}}
-</style>
+    /* ① EDUCATION: 연도 우측정렬 + 항목별 줄바꿈(그리드 1fr | auto) */
+    #edu ul{list-style:none; padding:0; margin:0}
+    #edu li{
+      display:grid; grid-template-columns:1fr auto; column-gap:12px;
+      align-items:baseline; padding:6px 0; border-bottom:1px dashed var(--line);
+    }
+    #edu .degree{font-weight:500}
+    #edu .year{color:var(--muted); font-size:12px; text-align:right; white-space:nowrap}
+
+    /* 모바일 */
+    @media(max-width:520px){
+      .header-grid{grid-template-columns:1fr}
+      .header-right{justify-self:start}
+      .avatar{width:96px; height:128px} /* 3:4 유지 축소 */
+      .name{font-size:24px}
+      .tag{font-size:13px}
+      nav a{font-size:13px}
+    }
+  </style>
 </head>
 <body>
   <main class="wrap">
     <header>
       <div class="header-grid">
         <div class="header-left">
-          <div class="brand">
-            <div>
-              <h1 class="name">Minyeong Kang</h1>
-              <p class="tag">Electrical Engineering @ POSTECH</p>
-            <p class="lab">📌 Energy Systems Lab</p>
-            </div>
+          <div>
+            <h1 class="name">Minyeong Kang</h1>
+            <p class="tag">Electrical Engineering @ POSTECH</p>
           </div>
           <nav>
             <a href="#about">About</a>
@@ -116,7 +111,9 @@
     <section id="about">
       <h2>ABOUT</h2>
       <p>
-        Hello. I am an M.S. student in Electrical Engineering at <a class="link" href="https://www.postech.ac.kr/eng/index.do">POSTECH</a>, advised by <a class="link" href="https://sites.google.com/view/youngjinkim/home?authuser=0">Prof. Youngjin Kim</a> in the <a class="link" href="https://powersys.postech.ac.kr/eslab/index.do">Energy Systems Lab</a>.
+        Hello. I am an M.S. student in Electrical Engineering at <a class="link" href="https://www.postech.ac.kr/eng/index.do">POSTECH</a>, advised by
+        <a class="link" href="https://sites.google.com/view/youngjinkim/home?authuser=0">Prof. Youngjin Kim</a> in the
+        <a class="link" href="https://powersys.postech.ac.kr/eslab/index.do">Energy Systems Lab</a>.
         My work centers on optimization and control of power systems, with a particular interest in <mark>power system optimization</mark>.
       </p>
       <p>
@@ -141,11 +138,11 @@
         </li>
       </ul>
     </section>
-    
+
     <section id="pubs">
       <h2>PUBLICATIONS</h2>
       <ul>
-        <li>Not yet...  But, 논문이 나오면 <span style="color:var(--green);font-weight:600">PDF</span>/<span style="color:var(--blue);font-weight:600">Code</span> 링크를 추가하세요.</li>
+        <li>Not yet... But, 논문이 나오면 <span style="color:var(--green);font-weight:600">PDF</span>/<span style="color:var(--blue);font-weight:600">Code</span> 링크를 추가하세요.</li>
       </ul>
     </section>
 
@@ -159,7 +156,9 @@
 
     <section id="contact">
       <h2>CONTACT</h2>
-      <a class="link" href="mailto:gangmin0@postech.ac.kr">Mail</a> <a class="link" href="https://linkedin.com/in/minyeong-kang">LinkedIn</a> <a class="link" href="https://github.com/minyxrii">GitHub</a>
+      <a class="link" href="mailto:gangmin0@postech.ac.kr">Mail</a>
+      <a class="link" href="https://linkedin.com/in/minyeong-kang">LinkedIn</a>
+      <a class="link" href="https://github.com/minyxrii">GitHub</a>
     </section>
 
     <footer>
