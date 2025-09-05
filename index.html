@@ -26,7 +26,7 @@
     nav{display:flex;align-items:center;gap:14px;padding:10px 0 16px}
     nav a{color:var(--fg);text-decoration:none;font-weight:600;font-size:14px}
     nav a:hover{color:var(--blue)}
-    nav .avatar{margin-left:auto}
+    
 
     /* 섹션: 간단한 제목, 얇은 구분선 */
     section{padding:24px 0;border-bottom:1px solid var(--line)}
@@ -62,25 +62,36 @@
        #edu li{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--line)}
        #edu .degree{font-weight:500}
        #edu .year{color:var(--muted);font-size:13px} */
-  </style>
+      /* 헤더 2열 레이아웃 (좌: 이름+네비, 우: 사진) */
+    .header-grid{display:grid;grid-template-columns:1fr 112px;column-gap:16px;row-gap:10px;align-items:end}
+    .header-left{display:grid;row-gap:8px}
+    .header-right{justify-self:end}
+    @media(max-width:520px){.header-grid{grid-template-columns:1fr}.header-right .avatar{width:88px;height:88px}}
+</style>
 </head>
 <body>
   <main class="wrap">
     <header>
-      <div class="brand">
-        <div>
-          <h1 class="name">Minyeong Kang</h1>
-          <p class="tag">Electrical Engineering @ POSTECH</p>
+      <div class="header-grid">
+        <div class="header-left">
+          <div class="brand">
+            <div>
+              <h1 class="name">Minyeong Kang</h1>
+              <p class="tag">Electrical Engineering @ POSTECH</p>
+            </div>
+          </div>
+          <nav>
+            <a href="#about">About</a>
+            <a href="#edu">Education</a>
+            <a href="#pubs">Publications</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact" class="link">Contact</a>
+          </nav>
+        </div>
+        <div class="header-right">
+          <img class="avatar" src="/mykang.jpg" alt="Minyeong Kang" />
         </div>
       </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#edu">Education</a>
-        <a href="#pubs">Publications</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact" class="link">Contact</a>
-        <img class="avatar" src="/mykang.jpg" alt="Minyeong Kang" />
-      </nav>
     </header>
 
     <section id="about">
