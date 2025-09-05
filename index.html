@@ -10,8 +10,8 @@
       --fg:#222; --bg:#fff; --muted:#626b74; --line:#eaecef;
       --blue:#2196F3; --green:#4CAF50; --maxw:760px;
       /* 사진 크기(3:4 비율 기준). 숫자만 바꾸면 동시에 반영됨 */
-      --photo-w:132px; --photo-h:168px;
-      --year-col: 20ch;
+      --photo-w:132px; --photo-h:170px;
+      --year-col: 22ch;
     }
 
     /* ③ 전반 폰트 80% (기존 15px → 12px) */
@@ -70,7 +70,7 @@
     /* ① EDUCATION: 연도 우측정렬 + 항목별 줄바꿈(그리드 1fr | auto) */
     #edu ul{list-style:none; padding:0; margin:0}
     #edu li{
-      display:grid; grid-template-columns:1fr auto; column-gap:12px;
+      display:grid; grid-template-columns:minmax(0,1fr) var(--year-col); column-gap:12px;
       align-items:baseline; padding:6px 0; border-bottom:1px dashed var(--line);
     }
     #edu .degree{font-weight:500}
@@ -100,8 +100,8 @@
         <div class="header-left">
           <div>
             <h1 class="name">Minyeong Kang</h1>
-            <p class="tag">Electrical Engineering @ POSTECH</p>
-            <p class="lab">📍 Energy Systems Lab</p>
+            <p class="tag">Electrical Engineering @ <a class="link" href="https://www.postech.ac.kr/eng/index.do">POSTECH</a></p>
+            <p class="lab">📍 <a class="link" href="https://powersys.postech.ac.kr/eslab/index.do">Energy Systems Lab</a></p>
           </div>
           <nav>
             <a href="#about">About</a>
@@ -120,9 +120,8 @@
     <section id="about">
       <h2>ABOUT</h2>
       <p>
-        Hello. I am an M.S. student in Electrical Engineering at <a class="link" href="https://www.postech.ac.kr/eng/index.do">POSTECH</a>, advised by
-        <a class="link" href="https://sites.google.com/view/youngjinkim/home?authuser=0">Prof. Youngjin Kim</a> in the
-        <a class="link" href="https://powersys.postech.ac.kr/eslab/index.do">Energy Systems Lab</a>.
+        Hello. I am an M.S. student in Electrical Engineering at POSTECH, advised by
+        <a class="link" href="https://sites.google.com/view/youngjinkim/home?authuser=0">Prof. Youngjin Kim</a> in the Energy Systems Lab.
         My work centers on optimization and control of power systems, with a particular interest in <mark>power system optimization</mark>.
       </p>
       <p>
