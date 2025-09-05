@@ -43,6 +43,27 @@
 
     /* 작은 화면: 그리드 없이 동일 여백 유지 */
     @media (max-width:480px){ .name{font-size:24px} }
+
+    /* Education Section */
+    .edu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .edu li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+    .edu .degree {
+      font-weight: 500;
+    }
+    .edu .year {
+      color: var(--muted);
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -56,6 +77,7 @@
       </div>
       <nav>
         <a href="#about">About</a>
+        <a href="#edu">Education</a>
         <a href="#pubs">Publications</a>
         <a href="#projects">Projects</a>
         <a href="#contact" class="link">Contact</a>
@@ -73,6 +95,24 @@
       </p>
     </section>
 
+    <section id="edu">
+      <h2>EDUCATION</h2>
+      <ul>
+        <li>
+          <span class="degree">M.S. in Electrical Engineering, POSTECH</span>
+          <span class="year">Sep 2025 – Present</span>
+        </li>
+        <li>
+          <span class="degree">B.S. in Electrical Engineering, POSTECH</span>
+          <span class="year">Feb 2021 – Aug 2025</span>
+        </li>
+        <li>
+          <span class="degree">Exchange Student in Elektrotechnik und Informationstechnik, Technische Universität Dresden</span>
+          <span class="year">Oct 2024 – Mar 2025</span>
+        </li>
+      </ul>
+    </section>
+    
     <section id="pubs">
       <h2>PUBLICATIONS</h2>
       <ul>
@@ -94,7 +134,7 @@
     </section>
 
     <footer>
-      © <span id="y"></span> Minyeong Kang · Last Updated in Sep. 2025
+      © <span id="y"></span> Minyeong Kang · Last Updated in Sep 2025
     </footer>
   </main>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
