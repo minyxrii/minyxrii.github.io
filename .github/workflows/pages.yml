@@ -1,0 +1,38 @@
+name: Deploy static site
+
+on:
+  push:
+    branches: ["main"]   # main 브랜치에 푸시될 때마다 배포
+  workflow_dispatch:      # 수동 실행도 허용
+
+permissions:              # ★ 반드시 필요 (토큰 권한)
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 루트에 있는 정적 파일을 그대로 업로드
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."        # index.html이 리포지토리 루트에 있으니 "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
