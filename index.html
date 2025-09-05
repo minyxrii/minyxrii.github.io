@@ -55,7 +55,7 @@
     /* 이름 아래 2줄(학과/연구실) 안의 링크 스타일 */
     .tag a,
     .lab a{
-      color: inherit;            /* 회색 그대로 */
+      color: color-mix(in oklab, var(--muted) 70%, var(--fg) 30%); /* 조금 더 검정색 */
       text-decoration: none;     /* 밑줄 제거 */
       font-weight: inherit;      /* 굵기 유지 */
       border-bottom: 0;
@@ -69,7 +69,7 @@
     }
     /* 방문 후 색 변형 방지 */
     .tag a:visited,
-    .lab a:visited{ color: inherit; }
+    .lab a:visited{ color: color-mix(in oklab, var(--muted) 70%, var(--fg) 30%); }
     
     /* 키보드 접근성 */
     .tag a:focus-visible,
@@ -127,7 +127,7 @@
         <div class="header-left">
           <div>
             <h1 class="name">Minyeong Kang</h1>
-            <p class="tag">Electrical Engineering @ <a href="https://www.postech.ac.kr/eng/index.do">POSTECH</a></p>
+            <p class="tag"><a href="https://eee.postech.ac.kr/">Electrical Engineering</a> @ <a href="https://www.postech.ac.kr/eng/index.do">POSTECH</a></p>
             <p class="lab">📍 <a href="https://powersys.postech.ac.kr/eslab/index.do">Energy Systems Lab</a></p>
           </div>
           <nav>
