@@ -45,12 +45,13 @@
     @media (max-width:480px){ .name{font-size:24px} }
 
     /* 이미지 삽입 */
-    .avatar {
-      width: 96px;
-      height: 96px;
-      /* border-radius: 90%;*/ /* 동그랗게 */
-      object-fit: cover;  /* 사진 잘리더라도 꽉 채우기 */
-      border: 2px solid var(--line);
+    .avatar{
+      width:126px; height:126px;       /* 크기 (원하는 크기로 숫자만 바꾸면 됨) */
+      border-radius:50%;
+      object-fit:cover;                 /* 가득 채우며 잘라냄 */
+      object-position:50% 18%;          /* 보이는 영역 위치 조정 */
+      border:2px solid var(--line);
+      box-shadow:0 2px 6px rgba(0,0,0,.06);
     }
 
     /* Education Section */
