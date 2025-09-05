@@ -44,6 +44,15 @@
     /* 작은 화면: 그리드 없이 동일 여백 유지 */
     @media (max-width:480px){ .name{font-size:24px} }
 
+    /* 이미지 삽입 */
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 90%; /* 동그랗게 */
+      object-fit: cover;  /* 사진 잘리더라도 꽉 채우기 */
+      border: 2px solid var(--line);
+    }
+
     /* Education Section */
     .edu {
       list-style: none;
@@ -74,6 +83,8 @@
           <h1 class="name">Minyeong Kang</h1>
           <p class="tag">Electrical Engineering @ POSTECH</p>
         </div>
+        <!-- 프로필 사진 -->
+        <img class="avatar" src="mykang.jpg" alt="Minyeong Kang" />
       </div>
       <nav>
         <a href="#about">About</a>
