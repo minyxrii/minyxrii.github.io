@@ -39,7 +39,7 @@
     mark{background:linear-gradient(transparent 60%, color-mix(in oklab, var(--green), #ffffff 75%) 60%);}    
 
     /* 푸터 */
-    footer{padding:18px 0;color:var(--muted);font-size:14px}
+    footer{padding:18px 0;color:var(--muted);font-size:7px}
 
     /* 작은 화면: 그리드 없이 동일 여백 유지 */
     @media (max-width:480px){ .name{font-size:24px} }
@@ -58,7 +58,6 @@
         <a href="#about">About</a>
         <a href="#pubs">Publications</a>
         <a href="#projects">Projects</a>
-        <a href="/cv.pdf" class="link">CV</a>
         <a href="#contact" class="link">Contact</a>
       </nav>
     </header>
@@ -66,38 +65,36 @@
     <section id="about">
       <h2>ABOUT</h2>
       <p>
-        I am an M.S. student in Electrical Engineering at POSTECH, advised by Prof. Youngjin Kim in the Energy Systems Lab.
-        My work centers on <mark>optimization and control</mark> for modern power & energy systems.
+        Hello. I am a M.S. student in Electrical Engineering at <a class="link" href="https://www.postech.ac.kr/eng/index.do">POSTECH</a>, advised by <a class="link" href="https://sites.google.com/view/youngjinkim/home?authuser=0">Prof. Youngjin Kim</a> in the <a class="link" href="https://powersys.postech.ac.kr/eslab/index.do">Energy Systems Lab</a>.
+        My work centers on  optimization and control of power systems, with a particular interest in <mark>power system optimization</mark>.
       </p>
       <p>
-        B.S. in Electrical Engineering (POSTECH, Aug 2025). Interests include renewable integration, power system operation, and optimization under uncertainty.
+        B.S. in Electrical Engineering (POSTECH, Aug 2025). Interests include Power System Optimization, Electricity Market, AI, and AI Quatization under uncertainty.
       </p>
-      <p><a class="link" href="https://github.com/minyxrii">github.com/minyxrii</a></p>
     </section>
 
     <section id="pubs">
       <h2>PUBLICATIONS</h2>
       <ul>
-        <li>준비 중입니다. 논문이 나오면 <span style="color:var(--green);font-weight:600">PDF</span>/<span style="color:var(--blue);font-weight:600">Code</span> 링크를 추가하세요.</li>
+        <li>Not yet...  But, 논문이 나오면 <span style="color:var(--green);font-weight:600">PDF</span>/<span style="color:var(--blue);font-weight:600">Code</span> 링크를 추가하세요.</li>
       </ul>
     </section>
 
     <section id="projects">
       <h2>PROJECTS</h2>
       <ul>
-        <li><strong>Battery Dispatch under Uncertainty</strong> — prototype MPC; <a class="link" href="#">code</a></li>
-        <li><strong>Unit Commitment Toy Model</strong> — education-focused solver; <a class="link" href="#">repo</a></li>
+        <li><strong>배전망 계획수립을 위한 수요발전예측 기술개발</strong> — 지능형 AI 수요 예측 품질 관리 체계 개발; <a class="link" href="#">pdf</a></li>
+        <li><strong>Not yet...</strong> — ^^; <a class="link" href="#">repo</a></li>
       </ul>
     </section>
 
     <section id="contact">
       <h2>CONTACT</h2>
-      <p>Email · <a class="link" href="mailto:hello@example.com">hello@example.com</a></p>
-      <p>GitHub · <a class="link" href="https://github.com/minyxrii">@minyxrii</a></p>
+      <a class="link" href="mailto:gangmin0@postech.ac.kr">Mail</a> <a class="link" href="https://linkedin.com/in/minyeong-kang">LinkedIn</a> <a class="link" href="https://github.com/minyxrii">GitHub</a>
     </section>
 
     <footer>
-      © <span id="y"></span> Minyeong Kang · Built with GitHub Pages
+      © <span id="y"></span> Minyeong Kang · Last Updated in Sep. 2025
     </footer>
   </main>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
