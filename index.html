@@ -52,6 +52,33 @@
     ul{margin:0;padding-left:18px}
     li{margin:8px 0}
 
+    /* 이름 아래 2줄(학과/연구실) 안의 링크 스타일 */
+    .tag a,
+    .lab a{
+      color: inherit;            /* 회색 그대로 */
+      text-decoration: none;     /* 밑줄 제거 */
+      font-weight: inherit;      /* 굵기 유지 */
+      border-bottom: 0;
+      display: inline-block;     /* scale 적용 위해 */
+      transform-origin: left bottom;
+      transition: transform .10s ease; /* 부드럽게 */
+    }
+    .tag a:hover,
+    .lab a:hover{
+      transform: scale(1.03);    /* 살짝(5%)만 커지게 */
+    }
+    /* 방문 후 색 변형 방지 */
+    .tag a:visited,
+    .lab a:visited{ color: inherit; }
+    
+    /* 키보드 접근성 */
+    .tag a:focus-visible,
+    .lab a:focus-visible{
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
     /* 링크 */
     a.link{color:var(--blue)}
     mark{background:linear-gradient(transparent 60%, color-mix(in oklab, var(--green), #ffffff 75%) 60%);}
