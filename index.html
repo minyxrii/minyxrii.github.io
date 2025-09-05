@@ -46,24 +46,22 @@
     @media (max-width:480px){ .name{font-size:22px} nav a{font-size:13px} nav .avatar{width:88px;height:88px} }
 
     /* 아바타: 네비게이션 우측, 동그란 크롭 */
-    .avatar {
-      width:112px;
-      height:112px;
-      border-radius:50%;
-      object-fit:cover;
-      object-position:50% 18%;
+    .avatar{
+      width:132px;
+      height:auto;
+      border-radius:0;
       background:#fff;
       border:1px solid var(--line);
       box-shadow:0 2px 6px rgba(0,0,0,.06);
     }
 
     /* (옵션) Education Section 스타일 쓰려면 #edu ul 로 지정 */
-    /* #edu ul{list-style:none;padding:0;margin:0}
-       #edu li{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--line)}
-       #edu .degree{font-weight:500}
-       #edu .year{color:var(--muted);font-size:13px} */
+    #edu ul{list-style:none;padding:0;margin:0}
+    #edu li{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--line)}
+    #edu .degree{font-weight:500}
+    #edu .year{color:var(--muted);font-size:13px}
       /* 헤더 2열 레이아웃 (좌: 이름+네비, 우: 사진) */
-    .header-grid{display:grid;grid-template-columns:1fr 112px;column-gap:16px;row-gap:10px;align-items:end}
+    .header-grid{display:grid;grid-template-columns:1fr 132px;column-gap:16px;row-gap:10px;align-items:end}
     .header-left{display:grid;row-gap:8px}
     .header-right{justify-self:end}
     @media(max-width:520px){.header-grid{grid-template-columns:1fr}.header-right .avatar{width:88px;height:88px}}
@@ -107,16 +105,16 @@
 
     <section id="edu">
       <h2>EDUCATION</h2>
-      <ul>
-        <li>
+      <edu ul>
+        <edu li>
           <span class="degree">M.S. in Electrical Engineering, POSTECH</span>
           <span class="year">Sep 2025 – Present</span>
         </li>
-        <li>
+        <edu li>
           <span class="degree">B.S. in Electrical Engineering, POSTECH</span>
           <span class="year">Feb 2021 – Aug 2025</span>
         </li>
-        <li>
+        <edu li>
           <span class="degree">Exchange Student in Elektrotechnik und Informationstechnik, Technische Universität Dresden</span>
           <span class="year">Oct 2024 – Mar 2025</span>
         </li>
