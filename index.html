@@ -1,206 +1,106 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Minyeong Kang | Home</title>
+  <title>Minyeong Kang</title>
+  <meta name="description" content="Minyeong Kang · Energy Systems · Optimization & Control" />
   <style>
-    :root {
-      --bg: #ffffff;
-      --fg: #222;
-      --muted: #555;
-      --green: #4CAF50;
-      --blue: #2196F3;
-      --border: #e5e7eb;
-      --radius: 12px;
-      --maxw: 960px;
+    :root{
+      --fg:#222; --bg:#fff; --muted:#626b74; --line:#eaecef;
+      --blue:#2196F3; --green:#4CAF50; --maxw:760px;
     }
+    /* 타입: Apple SD 산돌고딕 Neo 우선, 플랫폼별 대체 */
+    html,body{height:100%}
+    body{margin:0;color:var(--fg);background:var(--bg);
+      font-family:"Apple SD Gothic Neo","Apple SD 산돌고딕 Neo","Noto Sans KR","Pretendard","Segoe UI",system-ui,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;}
 
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      color: var(--fg);
-      background: var(--bg);
-    }
+    /* 레이아웃: 단일 컬럼, 넉넉한 여백, 정확한 정렬 */
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:56px 20px}
+    header{padding:28px 0 6px;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+    .name{font-size:28px;font-weight:700;letter-spacing:.2px;margin:0}
+    .tag{font-size:14px;color:var(--muted);margin:6px 0 0}
 
-    header {
-      background: #f9f9f9;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+    nav{display:flex;gap:18px;padding:12px 0 18px}
+    nav a{color:var(--fg);text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--blue)}
 
-    nav {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    /* 섹션: 간단한 제목, 얇은 구분선 */
+    section{padding:28px 0;border-bottom:1px solid var(--line)}
+    h2{font-size:18px;margin:0 0 14px;color:var(--muted);font-weight:700;letter-spacing:.5px}
+    p{margin:0 0 12px;line-height:1.75}
+    ul{margin:0;padding-left:18px}
+    li{margin:8px 0}
 
-    nav a {
-      margin-left: 18px;
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--fg);
-    }
-    nav a:hover {
-      color: var(--blue);
-    }
+    /* 링크 포인트 컬러 (초록/파랑 절제 사용) */
+    a.link{color:var(--blue)}
+    mark{background:linear-gradient(transparent 60%, color-mix(in oklab, var(--green), #ffffff 75%) 60%);}    
 
-    .wrap {
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 32px 20px;
-    }
+    /* 푸터 */
+    footer{padding:18px 0;color:var(--muted);font-size:14px}
 
-    .card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    h1 {
-      font-size: 2.2rem;
-      margin: 0 0 10px;
-      color: var(--blue);
-    }
-    h2 {
-      font-size: 1.3rem;
-      margin: 0 0 20px;
-      color: var(--green);
-      font-weight: 500;
-    }
-    h3 {
-      margin-top: 0;
-      color: var(--blue);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: var(--radius);
-      background: var(--blue);
-      color: #fff;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .btn:hover { opacity: 0.9; }
-
-    .grid2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    img.avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid var(--green);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: var(--muted);
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    @media(max-width: 800px) {
-      .grid2 { grid-template-columns: 1fr; }
-      nav { flex-direction: column; gap: 8px; }
-      nav a { margin: 0 10px; }
-    }
+    /* 작은 화면: 그리드 없이 동일 여백 유지 */
+    @media (max-width:480px){ .name{font-size:24px} }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div>
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div>
-        <a href="https://github.com/minyxrii">GitHub</a>
-        <a href="mailto:hello@example.com">Email</a>
-      </div>
-    </nav>
-  </header>
-
   <main class="wrap">
-    <section id="about" class="card">
-      <h1>Minyeong Kang</h1>
-      <h2>Graduate Student, Electrical Engineering @ POSTECH</h2>
-      <p>
-        I received my B.S. in Electrical Engineering from POSTECH in Aug 2025 and am currently pursuing my M.S. in the same department. 
-        I work in the <strong>Energy Systems Lab</strong> with Prof. Youngjin Kim. My research focuses on optimization and control for power and energy systems.
-      </p>
-      <p>
-        Interests: power system operation, renewable integration, optimization under uncertainty, and smart grid technologies.
-      </p>
-      <a class="btn" href="#contact">Get in touch</a>
-    </section>
-
-    <section id="research" class="wrap">
-      <div class="grid2">
-        <div class="card">
-          <h3>Research Overview</h3>
-          <p>
-            I design optimization and control methods for modern power and energy systems. Current topics include economic dispatch with renewables, grid-aware battery scheduling, and robust optimization for uncertain demand and generation.
-          </p>
-        </div>
-        <div class="card">
-          <h3>News</h3>
-          <ul>
-            <li>[2025] Joined Energy Systems Lab @ POSTECH as M.S. student.</li>
-            <li>[2025] Presented a course project on stochastic unit commitment.</li>
-          </ul>
+    <header>
+      <div class="brand">
+        <div>
+          <h1 class="name">Minyeong Kang</h1>
+          <p class="tag">Electrical Engineering @ POSTECH · Energy Systems, Optimization & Control</p>
         </div>
       </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#pubs">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="/cv.pdf" class="link">CV</a>
+        <a href="#contact" class="link">Contact</a>
+      </nav>
+    </header>
+
+    <section id="about">
+      <h2>ABOUT</h2>
+      <p>
+        I am an M.S. student in Electrical Engineering at POSTECH, advised by Prof. Youngjin Kim in the Energy Systems Lab.
+        My work centers on <mark>optimization and control</mark> for modern power & energy systems.
+      </p>
+      <p>
+        B.S. in Electrical Engineering (POSTECH, Aug 2025). Interests include renewable integration, power system operation, and optimization under uncertainty.
+      </p>
+      <p><a class="link" href="https://github.com/minyxrii">github.com/minyxrii</a></p>
     </section>
 
-    <section id="publications" class="card wrap">
-      <h3>Selected Publications</h3>
+    <section id="pubs">
+      <h2>PUBLICATIONS</h2>
       <ul>
-        <li>(Coming soon) Add your publications here.</li>
+        <li>준비 중입니다. 논문이 나오면 <span style="color:var(--green);font-weight:600">PDF</span>/<span style="color:var(--blue);font-weight:600">Code</span> 링크를 추가하세요.</li>
       </ul>
     </section>
 
-    <section id="projects" class="wrap">
-      <div class="grid2">
-        <div class="card">
-          <h3>Battery Dispatch under Uncertainty</h3>
-          <p>Prototype stochastic MPC for behind-the-meter batteries. <a href="#">Code</a></p>
-        </div>
-        <div class="card">
-          <h3>Unit Commitment Toy Model</h3>
-          <p>Education-focused UC solver with renewables. <a href="#">Repo</a></p>
-        </div>
-      </div>
+    <section id="projects">
+      <h2>PROJECTS</h2>
+      <ul>
+        <li><strong>Battery Dispatch under Uncertainty</strong> — prototype MPC; <a class="link" href="#">code</a></li>
+        <li><strong>Unit Commitment Toy Model</strong> — education-focused solver; <a class="link" href="#">repo</a></li>
+      </ul>
     </section>
 
-    <section id="contact" class="card wrap">
-      <h3>Contact</h3>
-      <p>Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
-      <p>GitHub: <a href="https://github.com/minyxrii">@minyxrii</a></p>
+    <section id="contact">
+      <h2>CONTACT</h2>
+      <p>Email · <a class="link" href="mailto:hello@example.com">hello@example.com</a></p>
+      <p>GitHub · <a class="link" href="https://github.com/minyxrii">@minyxrii</a></p>
     </section>
+
+    <footer>
+      © <span id="y"></span> Minyeong Kang · Built with GitHub Pages
+    </footer>
   </main>
-
-  <footer>
-    © <span id="y"></span> Minyeong Kang · Built on GitHub Pages
-  </footer>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
+
