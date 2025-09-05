@@ -10,7 +10,7 @@
       --fg:#222; --bg:#fff; --muted:#626b74; --line:#eaecef;
       --blue:#2196F3; --green:#4CAF50; --maxw:760px;
       /* 사진 크기(3:4 비율 기준). 숫자만 바꾸면 동시에 반영됨 */
-      --photo-w:132px; --photo-h:176px;
+      --photo-w:132px; --photo-h:170px;
     }
 
     /* ③ 전반 폰트 80% (기존 15px → 12px) */
@@ -18,7 +18,7 @@
     body{
       margin:0; color:var(--fg); background:var(--bg);
       font-family:"Apple SD Gothic Neo","Apple SD 산돌고딕 Neo","Noto Sans KR","Pretendard","Segoe UI",system-ui,Helvetica,Arial,sans-serif;
-      -webkit-font-smoothing:antialiased; font-size:12px;
+      -webkit-font-smoothing:antialiased; font-size:10px;
     }
 
     /* 레이아웃 */
@@ -36,11 +36,12 @@
     }
     .header-right{justify-self:end}
 
-    .name{font-size:28px; font-weight:700; letter-spacing:.2px; margin:0}
-    .tag{font-size:14px; color:var(--muted); margin:0}
+    .name{font-size:30px; font-weight:700; letter-spacing:.2px; margin:0}
+    .tag{font-size:16px; color:var(--muted); margin:0}
+    .lab{font-size:14px; color:var(--muted); margin:6px 0 0}
 
-    nav{display:flex; align-items:center; gap:16px; padding:0; margin-top:6px}
-    nav a{color:var(--fg); text-decoration:none; font-weight:700; font-size:14px}
+    nav{display:flex; align-items:center; gap:18px; padding:0; margin-top:6px}
+    nav a{color:var(--fg); text-decoration:none; font-weight:700; font-size:15px}
     nav a:hover{color:var(--blue)}
 
     /* 섹션 */
@@ -74,6 +75,10 @@
     #edu .degree{font-weight:500}
     #edu .year{color:var(--muted); font-size:12px; text-align:right; white-space:nowrap}
 
+    #contact a.link{font-weight:700;text-decoration:none;border-bottom:none;display:inline-block;transition:transform .12s ease,color .12s ease}
+    #contact a.link:hover{transform:scale(1.12)}
+    #contact a.link:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
+
     /* 모바일 */
     @media(max-width:520px){
       .header-grid{grid-template-columns:1fr}
@@ -93,6 +98,7 @@
           <div>
             <h1 class="name">Minyeong Kang</h1>
             <p class="tag">Electrical Engineering @ POSTECH</p>
+            <p class="lab">📍 Energy Systems Lab</p>
           </div>
           <nav>
             <a href="#about">About</a>
