@@ -10,7 +10,8 @@
       --fg:#222; --bg:#fff; --muted:#626b74; --line:#eaecef;
       --blue:#2196F3; --green:#4CAF50; --maxw:760px;
       /* 사진 크기(3:4 비율 기준). 숫자만 바꾸면 동시에 반영됨 */
-      --photo-w:132px; --photo-h:164px;
+      --photo-w:132px; --photo-h:168px;
+      --year-col: 20ch;
     }
 
     /* ③ 전반 폰트 80% (기존 15px → 12px) */
@@ -73,7 +74,7 @@
       align-items:baseline; padding:6px 0; border-bottom:1px dashed var(--line);
     }
     #edu .degree{font-weight:500}
-    #edu .year{color:var(--muted); font-size:12px; text-align:right; white-space:nowrap}
+    #edu .year{color:var(--muted); font-size:12px; text-align:left; justify-self:start; white-space:nowrap; font-variant-numeric: tabular-nums;}
 
     #contact a.link{font-weight:700;text-decoration:none;border-bottom:none;display:inline-block;transition:transform .12s ease,color .12s ease}
     #contact a.link:hover{transform:scale(1.12)}
@@ -87,6 +88,8 @@
       .name{font-size:24px}
       .tag{font-size:13px}
       nav a{font-size:13px}
+      #edu li{ grid-template-columns: 1fr; }
+      #edu .year{ margin-top:4px; } /* 연도가 아래 줄로 내려오면 간격 확보 */
     }
   </style>
 </head>
