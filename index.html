@@ -106,9 +106,27 @@
     .avatar{
       width:var(--photo-w); height:var(--photo-h);
       object-fit:contain; background:#fff;
-      border:1px solid var(--line); box-shadow:0 2px 6px rgba(0,0,0,.06);
+      border:1px solid var(--line); 
+      box-shadow:
+        0 10px 24px rgba(0,0,0,.18),
+        0 3px 8px rgba(0,0,0,.12);
+      transition: box-shadow .2s ease, transform .2s ease;
+      
       border-radius:0;
     }
+    .avatar:hover{
+      transform: translateY(-2px);
+      box-shadow:
+        0 16px 36px rgba(0,0,0,.22),
+        0 6px 12px rgba(0,0,0,.14);
+    }
+
+/* 다크모드에서는 그림자 강도/범위 조금 더 키우기 */
+html[data-theme="dark"] .avatar{
+  box-shadow:
+    0 18px 44px rgba(0,0,0,.8),
+    0 6px 16px rgba(0,0,0,.5);
+}
 
     /* ① EDUCATION: 연도 우측정렬 + 항목별 줄바꿈(그리드 1fr | auto) */
     #edu ul{list-style:none; padding:0; margin:0}
