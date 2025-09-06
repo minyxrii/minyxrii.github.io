@@ -7,6 +7,8 @@
   <meta name="description" content="Minyeong Kang · Energy Systems · Optimization & Control" />
   <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8E%93%3C/text%3E%3C/svg%3E">
+
+  <!-- 초기 깜빡임 방지: 저장된 테마를 먼저 적용 -->
   <script>
   (function(){try{
     const t=localStorage.getItem('theme');
@@ -74,13 +76,13 @@
     }
     .tag a:hover,
     .lab a:hover{
-      transform: scale(1.03);    /* 살짝(5%)만 커지게 */
+      transform: scale(1.03);    /* 살짝(3%)만 커지게 */
     }
     /* 방문 후 색 변형 방지 */
     .tag a:visited,
     .lab a:visited{ color: color-mix(in oklab, var(--muted) 70%, var(--fg) 30%); }
 
-    .contact a{color: #2196F3 !important; text-decoration: none; font-weight:700; text-decoration:none; border-bottom:none; display:inline-block; transition:transform .10s ease;}
+    .contact a{color: #2196F3 !important; text-decoration: none; font-weight:700; border-bottom:none; display:inline-block; transition:transform .10s ease;}
     .contact a:hover{transform:scale(1.03)}
     .contact a:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px;}
     .contact a:visited{ color: #2196F3 !important; text-decoration: none; }
@@ -117,8 +119,6 @@
     #edu .degree{font-weight:500}
     #edu .year{color:var(--muted); font-size:12px; text-align:left; justify-self:start; white-space:nowrap; font-variant-numeric: tabular-nums;}
 
-    
-
     /* 모바일 */
     @media(max-width:520px){
       .header-grid{grid-template-columns:1fr}
@@ -131,21 +131,33 @@
       nav a{font-size:13px}
       #edu li{ grid-template-columns: 1fr; }
       #edu .year{ margin-top:4px; } /* 연도가 아래 줄로 내려오면 간격 확보 */
-      body{ padding-top:46px; }
+      body{ padding-top:46px; }     /* 상단 고정 버튼과 겹침 방지 */
     }
 
-    /* === ADD: 다크모드에서 형광펜 가독성 개선 =================== */
-    /* 라이트 모드의 mark는 그대로 두고, 다크 모드에서만 오버라이드 */
+    /* === 다크 테마 전역 색상 (전부 이 블록으로 전환됨) === */
+    html[data-theme="dark"]{
+      --bg:#0b0c10;
+      --fg:#e8eef2;
+      --muted:#aab8c5;
+      --line:#23262d;
+      --blue:#58a6ff;
+      --green:#7bd389;
+    }
+
+    /* 다크 모드에서 형광펜 가독성 */
     html[data-theme="dark"] mark{
-      color:#fff !important;  /* 텍스트를 흰색으로 */
-      /* 형광 배경 더 진하게: 기존 그린을 어둠과 살짝 섞어서 채도 유지 */
+      color:#fff !important;
       background:linear-gradient(
         transparent 60%,
         color-mix(in oklab, var(--green) 85%, #000 15%) 60%
       );
     }
 
-    /* === ADD: 헤더 밖, 페이지 오른쪽 위에 고정 토글 버튼 ======== */
+    /* 다크에서 연락처 링크/아바타 배경 보정(선택) */
+    html[data-theme="dark"] .contact a{ color: var(--blue) !important; }
+    html[data-theme="dark"] .avatar{ background: transparent; }
+
+    /* === 헤더 밖, 페이지 오른쪽 위에 고정 토글 버튼 === */
     .theme-toggle--fixed{
       position:fixed; top:10px; right:16px; z-index:9999;
       width:34px; height:34px; border-radius:999px;
@@ -156,18 +168,18 @@
     }
     .theme-toggle--fixed:hover{ transform:scale(1.06); background:rgba(0,0,0,.04); }
     html[data-theme="dark"] .theme-toggle--fixed:hover{ background:rgba(255,255,255,.06); }
-    
-    /* (선택) 이전에 헤더 안에 있던 토글 버튼이 남아 있다면 숨기기 */
+    /* (선택) 혹시 헤더 안 토글이 남아있다면 숨기기 */
     .header-right #themeToggle{ display:none !important; }
   </style>
 
-  <!-- ADD: 라이트/다크 둘 다 지원 -->
+  <!-- 라이트/다크 모두 지원 -->
   <meta name="color-scheme" content="light dark">
 </head>
 <body>
   <main class="wrap">
-    <!-- ADD: 헤더 바깥 오른쪽 상단 고정 토글 버튼 -->
+    <!-- 헤더 바깥 오른쪽 상단 고정 토글 버튼 -->
     <button id="themeToggle" class="theme-toggle--fixed" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+
     <header>
       <div class="header-grid">
         <div class="header-left">
@@ -175,7 +187,7 @@
             <h1 class="name">Minyeong Kang</h1>
             <p class="tag"><a href="https://eee.postech.ac.kr/">Electrical Engineering</a> @ <a href="https://www.postech.ac.kr/eng/index.do">POSTECH</a></p>
             <p class="lab">📍 <a href="https://powersys.postech.ac.kr/eslab/index.do">Energy Systems Lab</a></p>
-            <p class="contact"><a href="mailto:gangmin0@postech.ac.kr">Mail</a>   <a href="https://linkedin.com/in/minyeong-kang">LinkedIn</a>   <a href="none">+82-10-5554-9169</a></p>
+            <p class="contact"><a href="mailto:gangmin0@postech.ac.kr">Mail</a>&emsp;<a href="https://linkedin.com/in/minyeong-kang">LinkedIn</a>&emsp;<a href="none">+82-10-5554-9169</a></p>
           </div>
           <nav>
             <a href="#about">About</a>
@@ -247,33 +259,34 @@
       © <span id="y"></span> Minyeong Kang · Last Updated in Sep 2025
     </footer>
   </main>
+
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 
-  <!-- ADD: 테마 토글 스크립트 -->
+  <!-- 테마 토글 스크립트 -->
   <script>
   (function(){
     const key='theme';
     const btn=document.getElementById('themeToggle');
     if(!btn) return;
-  
+
     function apply(t){
       document.documentElement.dataset.theme=t;   // html[data-theme="..."]
       btn.textContent=(t==='dark')?'☀️':'🌙';    // 아이콘 교체
     }
-  
+
     const saved=localStorage.getItem(key);
     if(saved==='light'||saved==='dark'){
       apply(saved);
     }else{
       apply(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     }
-  
+
     btn.addEventListener('click',()=>{
       const next=(document.documentElement.dataset.theme==='dark')?'light':'dark';
       apply(next);
       localStorage.setItem(key,next);
     });
-  
+
     if(!saved){
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',
         e=>apply(e.matches?'dark':'light'));
