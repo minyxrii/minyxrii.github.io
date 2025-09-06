@@ -121,12 +121,12 @@
         0 6px 12px rgba(0,0,0,.14);
     }
 
-/* 다크모드에서는 그림자 강도/범위 조금 더 키우기 */
-html[data-theme="dark"] .avatar{
-  box-shadow:
-    0 18px 44px rgba(0,0,0,.8),
-    0 6px 16px rgba(0,0,0,.5);
-}
+    /* 다크모드에서는 그림자 강도/범위 조금 더 키우기 */
+    html[data-theme="dark"] .avatar{
+      box-shadow:
+        0 18px 44px rgba(0,0,0,.8),
+        0 6px 16px rgba(0,0,0,.5);
+    }
 
     /* ① EDUCATION: 연도 우측정렬 + 항목별 줄바꿈(그리드 1fr | auto) */
     #edu ul{list-style:none; padding:0; margin:0}
@@ -139,9 +139,13 @@ html[data-theme="dark"] .avatar{
 
     /* 모바일 */
     @media(max-width:520px){
-      .header-grid{grid-template-columns:1fr}
-      .header-right{justify-self:start}
-      .avatar{width:96px; height:128px} /* 3:4 유지 축소 */
+      .header-grid{grid-template-columns:1fr; grid-template-areas: "info" "photo" "nav";}
+      .header-left{ display:contents; }
+      .header-left > div:first-child{ grid-area: info; } /* 이름/학과/연구실/연락처 */
+      .header-right{ grid-area: photo; justify-self:start; } /* 사진 */
+      .header-left nav{ grid-area: nav; margin-top:10px; }   /* 메뉴 */
+
+      .avatar{width:96px; height:123px} /* 3:4 유지 축소 */
       .name{font-size:24px}
       .tag{font-size:13px}
       .lab{font-size:13px}
