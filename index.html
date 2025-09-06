@@ -196,6 +196,32 @@
 
   <!-- 라이트/다크 모두 지원 -->
   <meta name="color-scheme" content="light dark">
+
+  <script>
+  /* 🎓 이모지로 PNG 파비콘/애플터치아이콘을 동적으로 생성 */
+  (function(){
+    function makeIcon(size){
+      var c=document.createElement('canvas'); c.width=c.height=size;
+      var ctx=c.getContext('2d');
+      ctx.clearRect(0,0,size,size);
+      ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.font=(size*0.78)+'px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",system-ui,sans-serif';
+      ctx.fillText('🎓', size/2, size/2);
+      return c.toDataURL('image/png');
+    }
+    function setIcon(rel, size, id){
+      var link=document.getElementById(id);
+      if(!link){ link=document.createElement('link'); link.id=id; document.head.appendChild(link); }
+      link.rel=rel; link.type='image/png';
+      if(size) link.sizes=size+'x'+size; else link.removeAttribute('sizes');
+      link.href=makeIcon(size||180);
+    }
+    // 탭 파비콘(16/32) + iOS용 애플터치아이콘(180)
+    setIcon('icon',16,'fav16');
+    setIcon('icon',32,'fav32');
+    setIcon('apple-touch-icon',180,'appleIcon');
+  })();
+  </script>
 </head>
 <body>
   <main class="wrap">
