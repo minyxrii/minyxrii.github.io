@@ -7,6 +7,13 @@
   <meta name="description" content="Minyeong Kang · Energy Systems · Optimization & Control" />
   <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8E%93%3C/text%3E%3C/svg%3E">
+  <script>
+  (function(){try{
+    const t=localStorage.getItem('theme');
+    if(t==='dark'||t==='light') document.documentElement.dataset.theme=t;
+  }catch(e){}})();
+  </script>
+
   <style>
     :root{
       --fg:#222; --bg:#fff; --muted:#626b74; --line:#eaecef;
@@ -124,34 +131,34 @@
       nav a{font-size:13px}
       #edu li{ grid-template-columns: 1fr; }
       #edu .year{ margin-top:4px; } /* 연도가 아래 줄로 내려오면 간격 확보 */
+      body{ padding-top:46px; }
     }
 
-    /* === Theme toggle (ADD) ===================================== */
-    /* 다크 테마일 때 색 변수 교체 */
-    html[data-theme="dark"]{
-      --bg:#0b0c10;
-      --fg:#e8eef2;
-      --muted:#aab8c5;
-      --line:#23262d;
-      --blue:#58a6ff;
-      --green:#7bd389;
+    /* === ADD: 다크모드에서 형광펜 가독성 개선 =================== */
+    /* 라이트 모드의 mark는 그대로 두고, 다크 모드에서만 오버라이드 */
+    html[data-theme="dark"] mark{
+      color:#fff !important;  /* 텍스트를 흰색으로 */
+      /* 형광 배경 더 진하게: 기존 그린을 어둠과 살짝 섞어서 채도 유지 */
+      background:linear-gradient(
+        transparent 60%,
+        color-mix(in oklab, var(--green) 85%, #000 15%) 60%
+      );
     }
-    
-    /* 우측 칼럼 안에서 토글 버튼을 오른쪽으로 붙임 */
-    .header-right{ text-align:right; }
-    
-    /* 토글 버튼 스타일 */
-    .theme-toggle{
+
+    /* === ADD: 헤더 밖, 페이지 오른쪽 위에 고정 토글 버튼 ======== */
+    .theme-toggle--fixed{
+      position:fixed; top:10px; right:16px; z-index:9999;
       width:34px; height:34px; border-radius:999px;
       border:1px solid var(--line);
       background:transparent; color:var(--fg);
-      display:inline-grid; place-items:center;
-      cursor:pointer; margin-bottom:4px;
+      display:inline-grid; place-items:center; cursor:pointer;
       transition:transform .12s ease, background-color .12s ease, color .12s ease, border-color .12s ease;
     }
-    .theme-toggle:hover{ transform:scale(1.06); background:rgba(0,0,0,.04); }
-    html[data-theme="dark"] .theme-toggle:hover{ background:rgba(255,255,255,.06); }
-    /* ============================================================ */
+    .theme-toggle--fixed:hover{ transform:scale(1.06); background:rgba(0,0,0,.04); }
+    html[data-theme="dark"] .theme-toggle--fixed:hover{ background:rgba(255,255,255,.06); }
+    
+    /* (선택) 이전에 헤더 안에 있던 토글 버튼이 남아 있다면 숨기기 */
+    .header-right #themeToggle{ display:none !important; }
   </style>
 
   <!-- ADD: 라이트/다크 둘 다 지원 -->
@@ -159,6 +166,8 @@
 </head>
 <body>
   <main class="wrap">
+    <!-- ADD: 헤더 바깥 오른쪽 상단 고정 토글 버튼 -->
+    <button id="themeToggle" class="theme-toggle--fixed" aria-label="Toggle theme" title="Toggle theme">🌙</button>
     <header>
       <div class="header-grid">
         <div class="header-left">
@@ -177,7 +186,6 @@
           </nav>
         </div>
         <div class="header-right">
-          <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
           <img class="avatar" src="/mykang.jpg" alt="Minyeong Kang" />
         </div>
       </div>
