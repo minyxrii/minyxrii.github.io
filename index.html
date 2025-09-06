@@ -125,7 +125,37 @@
       #edu li{ grid-template-columns: 1fr; }
       #edu .year{ margin-top:4px; } /* 연도가 아래 줄로 내려오면 간격 확보 */
     }
+
+    /* === Theme toggle (ADD) ===================================== */
+    /* 다크 테마일 때 색 변수 교체 */
+    html[data-theme="dark"]{
+      --bg:#0b0c10;
+      --fg:#e8eef2;
+      --muted:#aab8c5;
+      --line:#23262d;
+      --blue:#58a6ff;
+      --green:#7bd389;
+    }
+    
+    /* 우측 칼럼 안에서 토글 버튼을 오른쪽으로 붙임 */
+    .header-right{ text-align:right; }
+    
+    /* 토글 버튼 스타일 */
+    .theme-toggle{
+      width:34px; height:34px; border-radius:999px;
+      border:1px solid var(--line);
+      background:transparent; color:var(--fg);
+      display:inline-grid; place-items:center;
+      cursor:pointer; margin-bottom:4px;
+      transition:transform .12s ease, background-color .12s ease, color .12s ease, border-color .12s ease;
+    }
+    .theme-toggle:hover{ transform:scale(1.06); background:rgba(0,0,0,.04); }
+    html[data-theme="dark"] .theme-toggle:hover{ background:rgba(255,255,255,.06); }
+    /* ============================================================ */
   </style>
+
+  <!-- ADD: 라이트/다크 둘 다 지원 -->
+  <meta name="color-scheme" content="light dark">
 </head>
 <body>
   <main class="wrap">
@@ -147,6 +177,7 @@
           </nav>
         </div>
         <div class="header-right">
+          <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
           <img class="avatar" src="/mykang.jpg" alt="Minyeong Kang" />
         </div>
       </div>
@@ -209,5 +240,37 @@
     </footer>
   </main>
   <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+
+  <!-- ADD: 테마 토글 스크립트 -->
+  <script>
+  (function(){
+    const key='theme';
+    const btn=document.getElementById('themeToggle');
+    if(!btn) return;
+  
+    function apply(t){
+      document.documentElement.dataset.theme=t;   // html[data-theme="..."]
+      btn.textContent=(t==='dark')?'☀️':'🌙';    // 아이콘 교체
+    }
+  
+    const saved=localStorage.getItem(key);
+    if(saved==='light'||saved==='dark'){
+      apply(saved);
+    }else{
+      apply(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    }
+  
+    btn.addEventListener('click',()=>{
+      const next=(document.documentElement.dataset.theme==='dark')?'light':'dark';
+      apply(next);
+      localStorage.setItem(key,next);
+    });
+  
+    if(!saved){
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',
+        e=>apply(e.matches?'dark':'light'));
+    }
+  })();
+  </script>
 </body>
 </html>
