@@ -242,6 +242,7 @@
             <a href="#edu">Education</a>
             <a href="#pubs">Publications</a>
             <a href="#projects">Projects</a>
+            <a href="#activities">Activities</a>
             <a href="#patents">Patents</a>
           </nav>
         </div>
@@ -254,20 +255,16 @@
         <section id="about">
       <h2>ABOUT</h2>
       <p>
-        Hello. I am an M.S. student in Electrical Engineering at POSTECH, advised by
-        <a class="link" href="https://sites.google.com/view/youngjinkim/home?authuser=0">Prof. Youngjin Kim</a> in the Energy Systems Lab.
-        My work centers on <mark>keeping forecasting models correct over time</mark> — detecting when the data a model was
-        trained on has drifted, and deciding when it needs to be retrained.
+        Hello. I am an M.S. student in Electrical Engineering at POSTECH, advised by <a class="link" href="https://postech-esl.notion.site/main">Prof. Youngjin Kim</a> in the Energy Systems Lab.
+        My work centers on <mark>keeping forecasting models correct over time</mark> — detecting when the data a model was trained on has drifted, and deciding when it needs to be retrained.
       </p>
       <p>
-        In my first year I built that foundation through a distribution-network demand forecasting project. Transferring a
-        method validated on public data to real Korean feeder data taught me that an algorithm that works in the lab rarely
-        survives field data unchanged. Since this semester I have been working on the power system impacts of AI data centers —
-        second-scale load fluctuation, PCC voltage impact, and UPS-based mitigation through EMT analysis.
+        I built that foundation through a distribution-network demand forecasting project. Transferring a method validated on public data to real Korean feeder data taught me that an algorithm that works in the lab rarely
+        survives field data unchanged. Since this semester I have been working on the power system impacts of AI data centers — second-scale load fluctuation, PCC voltage impact, and UPS-based mitigation through EMT analysis.
       </p>
       <p>
-        B.S. in Electrical Engineering (POSTECH, Aug 2025). Interests include forecast quality management, AI data center power,
-        distributed energy resource operation, and power system optimization.
+        B.S. in Electrical Engineering (POSTECH, Aug 2025). Interests include forecast quality management, AI data center power
+        and power system optimization.
       </p>
     </section>
 
@@ -276,7 +273,7 @@
       <ul>
         <li>
           <span class="degree">M.S. in Electrical Engineering, POSTECH</span>
-          <span class="year">Sep 2025 – Present</span>
+          <span class="year">Sep 2025 – Aug 2027 (expected)</span>
         </li>
         <li>
           <span class="degree">B.S. in Electrical Engineering, POSTECH</span>
@@ -292,27 +289,75 @@
     <section id="pubs">
       <h2>PUBLICATIONS</h2>
       <ul>
-        <li>Not yet... But, 논문 내면 <span style="color:var(--green);font-weight:600">PDF</span>/<span style="color:var(--blue);font-weight:600">Code</span> 링크ㄱㄱ</li>
+        <li>
+          <strong>Input-Distribution-Based Multi-Scale Drift Detection for Long-Term Load Forecasting</strong><br>
+          장기 부하 예측 품질 관리를 위한 입력 분포 기반 다중 스케일 드리프트 감지<br>
+          M. Kang and Y. Kim &middot; KIEE Summer Conference, Jul 2026 &middot; <em>first author</em> &middot;
+          <a class="link" href="#">pdf</a>
+        </li>
+        <li>
+          <strong>EMT Analysis of AI Data Center Load Fluctuation and UPS-Based Mitigation</strong><br>
+          AI 데이터센터 부하변동의 전력계통 영향과 UPS 기반 완화방안에 관한 EMT 해석<br>
+          M. Kang and Y. Kim &middot; KIEE Autumn Conference, Oct 2026 &middot; <em>to be submitted</em>
+        </li>
+        <li>
+          <strong>Toward Deployment-Grade Trustworthy AI for Power Grids</strong><br>
+          International review paper &middot; co-author &middot; <em>in preparation</em>
+        </li>
       </ul>
     </section>
 
     <section id="projects">
       <h2>PROJECTS</h2>
       <ul>
-        <li><strong>[KEPCO] Development of Demand Forecasting Technology for Distribution Network Planning</strong> <br> 배전망의 이력데이터를 활용한 수요발전 예측 시나리오 및 자동화 알고리즘 개발; <a class="link" href="#">pdf</a></li>
-        <li><strong>Not yet...</strong> — ^^; <a class="link" href="#">repo</a></li>
+        <li>
+          <strong>[KEPCO] Development of Demand Forecasting Technology for Distribution Network Planning</strong><br>
+          배전망의 이력데이터를 활용한 수요·발전 예측 시나리오 및 자동화 알고리즘 개발 &middot; Dec 2025 – Nov 2027<br>
+          POSTECH task: forecast quality management. Transferred a drift detection method to 730 Seoul feeders (2023–2025),
+          separated a single "abnormal" signal into band exit, value stuck, and gap, and redesigned the counting rule —
+          reducing detections from 428,441 to 574. <a class="link" href="#">pdf</a>
+        </li>
+        <li>
+          <strong>[KETEP] Vehicle-to-Grid Project</strong><br>
+          EV 충전 파라미터 예측 &middot; ongoing<br>
+          Predicting arrival/departure times and charging demand of electric vehicles with a distributional model over
+          trip-chain simulation data.
+        </li>
+        <li>
+          <strong>[KAIST U-AIM × POSTECH ESL] PINN-based Optimal Power Flow</strong><br>
+          물리 정보 신경망 기반 실시간 최적조류계산 공동연구 &middot; 2026 H2
+        </li>
+        <li>
+          <strong>Optimal Siting and Scheduling of V2G, ESS, and PV in a Distribution Network</strong><br>
+          Mixed-integer program under LinDistFlow constraints with battery degradation cost and a K-polygon approximation of
+          inverter reactive power limits; solved with CPLEX on IEEE 33-bus. <a class="link" href="#">repo</a>
+        </li>
+        <li>
+          <strong>Three-Phase Grid-Connected PV Inverter Modeling (PSCAD/EMTDC)</strong><br>
+          dq-axis current control, DC-link voltage loop, MPPT, and grid-code verification; reimplemented from a lab
+          reference model for a data center PV grid-impact study.
+        </li>
       </ul>
     </section>
 
-    <section id="patents">
-      <h2>PATENTS</h2>
+    <section id="activities">
+      <h2>ACTIVITIES</h2>
       <ul>
-        <li>Not yet... But, 특허 내면 <span style="color:var(--green);font-weight:600">PDF</span>/<span style="color:var(--blue);font-weight:600">Code</span> 링크ㄱㄱ</li>
+        <li>
+          <strong>ARPA-E Energy Innovation Summit 2025</strong> — Washington, D.C. &middot; Mar 2025<br>
+          POSTECH student delegation; selected as a four-member team, the first delegation from POSTECH.
+          Attended sessions on AI-based grid control and distributed energy resource integration.
+        </li>
+        <li>
+          <strong>CES 2024</strong> — Las Vegas &middot; Jan 2024<br>
+          Department of Electrical Engineering overseas program, selected participant.
+          Reviewed home energy platform and AI-based energy management exhibits.
+        </li>
       </ul>
     </section>
 
     <footer>
-      © <span id="y"></span> Minyeong Kang · Last Updated in Sep 2025
+      © <span id="y"></span> Minyeong Kang · Last Updated in Sep 2026
     </footer>
   </main>
 
